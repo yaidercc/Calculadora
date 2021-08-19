@@ -30,11 +30,15 @@ h2 {
     font-size: calc(1.4vw + 1.4em);
 }
 
+/* *** Utilidades *** */
+.mg-bottom {
+    margin-bottom: 30px;
+}
+
 /* *** calculadora *** */
 
 .container-calc {
     width: 100%;
-
 }
 
 @media (min-width: 768px) {
@@ -64,8 +68,6 @@ h2 {
         display: flex;
         align-items: center;
     }
-
-
 }
 
 .swicht-theme {
@@ -74,7 +76,6 @@ h2 {
     .kind-theme {
         display: flex;
         justify-content: space-around;
-
     }
 
     .swicht {
@@ -96,4 +97,13 @@ h2 {
             background-color: $t1keyshadow2;
         }
     }
+}
+
+// screen
+.screen {
+    border-radius: 10px;
+    padding: 15px 10px;
+    text-align: right;
+    color: $t1txtwhite;
+    background-color: $t1screenbackground;
 }

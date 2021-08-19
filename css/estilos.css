@@ -21,6 +21,11 @@ h2 {
   font-size: calc(1.4vw + 1.4em);
 }
 
+/* *** Utilidades *** */
+.mg-bottom {
+  margin-bottom: 30px;
+}
+
 /* *** calculadora *** */
 .container-calc {
   width: 100%;
@@ -75,6 +80,14 @@ h2 {
   width: 14px;
   border-radius: 20px;
   background-color: #93261a;
+}
+
+.screen {
+  border-radius: 10px;
+  padding: 15px 10px;
+  text-align: right;
+  color: white;
+  background-color: #182034;
 }
 
 /*# sourceMappingURL=estilos.css.map */
