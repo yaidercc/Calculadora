@@ -1,0 +1,15 @@
+/* *** recursos *** */
+@import "componentes/colors";
+@import "componentes/fonts";
+
+/* *** Globales *** */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $t1mainbackground;
+    font-family: $font;
+}
+
+/* *** calculadora *** */
