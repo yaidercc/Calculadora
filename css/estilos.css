@@ -1,13 +1,80 @@
 /* *** recursos *** */
+/* *** funciones *** */
 /* *** Globales *** */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   background-color: #3a4764;
   font-family: "Spartan", sans-serif;
+  text-transform: capitalize;
+  overflow: hidden;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+}
+
+h2 {
+  font-size: calc(1.4vw + 1.4em);
 }
 
 /* *** calculadora *** */
+.container-calc {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container-calc {
+    width: 500px;
+    height: 500px;
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.header p {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+.header p:nth-child(1) {
+  align-self: flex-end;
+}
+.header .theme {
+  display: flex;
+  align-items: center;
+}
+
+.swicht-theme {
+  margin-left: 4vmin;
+}
+.swicht-theme .kind-theme {
+  display: flex;
+  justify-content: space-around;
+}
+.swicht-theme .swicht {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2px 5px;
+  width: 60px;
+  height: 18px;
+  border-radius: 20px;
+  margin-top: 5px;
+  background-color: #232c43;
+}
+.swicht-theme .swicht::after {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  border-radius: 20px;
+  background-color: #93261a;
+}
 
 /*# sourceMappingURL=estilos.css.map */

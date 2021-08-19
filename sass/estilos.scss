@@ -2,14 +2,98 @@
 @import "componentes/colors";
 @import "componentes/fonts";
 
+/* *** funciones *** */
+@mixin bothsize($size) {
+    height: $size;
+    width: $size;
+}
+
 /* *** Globales *** */
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
     background-color: $t1mainbackground;
     font-family: $font;
+    text-transform: capitalize;
+    overflow: hidden;
+}
+
+h1,
+h2 {
+    font-weight: $bold;
+}
+
+h2 {
+    font-size: calc(1.4vw + 1.4em);
 }
 
 /* *** calculadora *** */
+
+.container-calc {
+    width: 100%;
+
+}
+
+@media (min-width: 768px) {
+    .container-calc {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+//header
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $t1txtwhite;
+
+    p {
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    p:nth-child(1) {
+        align-self: flex-end;
+    }
+
+    .theme {
+        display: flex;
+        align-items: center;
+    }
+
+
+}
+
+.swicht-theme {
+    margin-left: 4vmin;
+
+    .kind-theme {
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+    .swicht {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 2px 5px;
+        width: 60px;
+        height: 18px;
+        border-radius: 20px;
+        margin-top: 5px;
+        background-color: $t1togglebackground;
+
+        &::after {
+            content: "";
+            position: absolute;
+            @include bothsize(14px);
+            border-radius: 20px;
+            background-color: $t1keyshadow2;
+        }
+    }
+}
