@@ -17,26 +17,22 @@ let multiplicacion = document.getElementById("multiplicacion");
 let division = document.getElementById("division");
 let punto = document.getElementById("punto");
 let equal = document.getElementById("equal");
-let operation = document.getElementsByClassName("operation");
 // funciones
 let del = document.getElementById("del");
 let reset = document.getElementById("reset");
 let screen = document.getElementById("screen");
 // numeros
-let numa = "0";
-let numb = "";
-let operacion = "";
-let swit = 0;
+let ope = [];
+let signs = ["x", "/", "-", "+", "."];
 // eventos numeros
 for (const i of numbers) {
     i.addEventListener("click", (e) => {
-        if (screen.textContent == "0") screen.textContent = ""
+        if (screen.textContent == "0" || screen.textContent == "Infinito") screen.textContent = ""
     })
 }
 const validarSignos = () => {
     let string = screen.textContent.split("");
-    let reg = ["x", "/", "-", "+", "."];
-    return reg.includes(string[string.length - 1]);
+    return signs.includes(string[string.length - 1]);
 }
 
 one.addEventListener("click", (e) => {
@@ -44,11 +40,13 @@ one.addEventListener("click", (e) => {
 
     screen.textContent += "1";
 
+
 })
 two.addEventListener("click", (e) => {
     e.preventDefault();
 
     screen.textContent += "2";
+
 
 })
 three.addEventListener("click", (e) => {
@@ -56,11 +54,13 @@ three.addEventListener("click", (e) => {
 
     screen.textContent += "3";
 
+
 })
 four.addEventListener("click", (e) => {
     e.preventDefault();
 
     screen.textContent += "4";
+
 
 })
 five.addEventListener("click", (e) => {
@@ -68,17 +68,20 @@ five.addEventListener("click", (e) => {
 
     screen.textContent += "5";
 
+
 })
 six.addEventListener("click", (e) => {
     e.preventDefault();
 
     screen.textContent += "6";
 
+
 })
 seven.addEventListener("click", (e) => {
     e.preventDefault();
 
     screen.textContent += "7";
+
 
 })
 eight.addEventListener("click", (e) => {
@@ -87,17 +90,20 @@ eight.addEventListener("click", (e) => {
     screen.textContent += "8";
 
 
+
 })
 nine.addEventListener("click", (e) => {
     e.preventDefault();
 
     screen.textContent += "9";
 
+
 })
 zero.addEventListener("click", (e) => {
     e.preventDefault();
 
     screen.textContent += "0";
+
 
 })
 // operaciones
@@ -107,9 +113,6 @@ suma.addEventListener("click", (e) => {
         screen.textContent += "+";
     }
 
-    operacion = "+"
-
-
 })
 resta.addEventListener("click", (e) => {
     e.preventDefault();
@@ -117,9 +120,6 @@ resta.addEventListener("click", (e) => {
         screen.textContent += "-";
 
     }
-
-
-    operacion = "-"
 })
 multiplicacion.addEventListener("click", (e) => {
     e.preventDefault();
@@ -128,7 +128,6 @@ multiplicacion.addEventListener("click", (e) => {
 
     }
 
-    operacion = "x"
 })
 division.addEventListener("click", (e) => {
     e.preventDefault();
@@ -137,7 +136,6 @@ division.addEventListener("click", (e) => {
 
     }
 
-    operacion = "/"
 })
 punto.addEventListener("click", (e) => {
     e.preventDefault();
@@ -157,38 +155,101 @@ del.addEventListener("click", (e) => {
 reset.addEventListener("click", (e) => {
     e.preventDefault();
     screen.textContent = "0";
-    numa = "0";
-    numb = "";
-    swit = 0;
-    operacion = "";
+    ope = [];
 })
 equal.addEventListener("click", (e) => {
     e.preventDefault();
-
+    if (signs.includes(ope[ope.length - 1])) {
+        alert("repeta")
+    } else {
+        ope = screen.textContent.split("");
+        screen.textContent = resolv(ope);
+    }
 })
 
 // resolver
-const resolv = (a, b, operacion) => {
-    let res = 0;
-    switch (operacion) {
+const resolv = (operacion) => {
+    let numbers = [];
+    let signos = [];
+    let j = 0;
+    let pos = buscarSignos(operacion);
+    // separar numeros y signos
+    for (let i = 0; i < pos.length; i++) {
+        numbers[i] = operacion.slice(j, pos[i]).join("");
+        signos[i] = operacion[pos[i]];
+        j = pos[i] + 1;
+    }
+    numbers.push(operacion.slice(j, pos[pos.length]).join(""))
+    if (signos.includes("i")) {
+        return "Infinito"
+    }
+    while (numbers.length > 1) {
+        if (signos.includes("x") || signos.includes("/")) {
+            if (signos.includes("x")) {
+                let indice = signos.indexOf("x");
+
+                numbers[indice] = resolver(numbers[indice], numbers[indice + 1], "*")
+                signos.splice(indice, 1);
+                numbers.splice(indice + 1, 1);
+                console.log(`numbers=${numbers}, signos=${signos}`)
+            }
+            if (signos.includes("/")) {
+                let indice = signos.indexOf("/");
+                if (numbers[indice + 1] != 0) {
+                    numbers[indice] = resolver(numbers[indice], numbers[indice + 1], "/")
+                } else {
+                    return "Infinito"
+                }
+
+                signos.splice(indice, 1);
+                numbers.splice(indice + 1, 1);
+            }
+        } else {
+            numbers[0] = resolver(numbers[0], numbers[1], signos[0])
+            signos.splice(0, 1);
+            numbers.splice(1, 1);
+            console.log(`numbers=${numbers}, signos=${signos}`)
+        }
+
+    }
+
+    return numbers;
+
+    // console.log(resolver(a, b, signo))
+}
+const buscarSignos = (op) => {
+    let pos = [];
+
+    for (let i = 0; i < op.length; i++) {
+        if (!/[0-9\.]/.test(op[i])) {
+
+            pos.push(i)
+
+
+        }
+    }
+    return pos;
+}
+const resolver = (a, b, signo) => {
+    let result = 0;
+    switch (signo) {
         case "+":
-            res = parseFloat(a) + parseFloat(b);
+            result = parseFloat(a) + parseFloat(b);
             break;
         case "-":
-            res = parseFloat(a) - parseFloat(b);
+            result = parseFloat(a) - parseFloat(b);
             break;
         case "*":
-            res = parseFloat(a) * parseFloat(b);
+            result = parseFloat(a) * parseFloat(b);
             break;
         case "/":
-            if (b != 0) {
-                res = parseFloat(a) / parseFloat(b);
-            } else {
-                res = "Infinito";
+            if (b != "0") {
+                result = parseFloat(a) / parseFloat(b);
             }
             break;
         default:
             break;
     }
-    return res;
+
+    return result.toString();
 }
