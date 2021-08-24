@@ -172,10 +172,8 @@ reset.addEventListener("click", (e) => {
 })
 equal.addEventListener("click", (e) => {
     e.preventDefault();
-    if (signs.includes(ope[ope.length - 1])) {
-        alert("repeta")
-    } else {
-        ope = screen.textContent.split("");
+    ope = screen.textContent.split("");
+    if (!signs.includes(ope[ope.length - 1])) {
         screen.textContent = resolv(ope);
     }
 })

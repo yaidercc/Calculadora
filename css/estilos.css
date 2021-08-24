@@ -76,15 +76,15 @@ h2 {
   align-items: center;
   justify-content: space-between;
   padding: 2px 5px;
-  width: 60px;
-  height: 18px;
+  width: 90px;
+  height: 27px;
   border-radius: 20px;
   margin-top: 5px;
 }
 .swicht-theme .swicht a {
   position: absolute;
-  height: 14px;
-  width: 14px;
+  height: 16px;
+  width: 16px;
   border-radius: 20px;
 }
 .swicht-theme .swicht a.theme-2 {
@@ -98,8 +98,8 @@ h2 {
   right: 5px;
 }
 .swicht-theme .swicht span {
-  height: 14px;
-  width: 14px;
+  height: 16px;
+  width: 16px;
   border-radius: 20px;
   background-color: #182034;
   cursor: pointer;
