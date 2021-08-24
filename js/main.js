@@ -10,6 +10,11 @@ let eight = document.getElementById("eight");
 let nine = document.getElementById("nine");
 let zero = document.getElementById("zero");
 let numbers = document.getElementsByClassName("number");
+// temas
+let temas = document.getElementsByClassName("theme-span");
+let cambiarTema = document.getElementById("btn-theme");
+//container
+let container = document.getElementById("container");
 // operacion
 let suma = document.getElementById("suma");
 let resta = document.getElementById("resta");
@@ -30,9 +35,17 @@ for (const i of numbers) {
         if (screen.textContent == "0" || screen.textContent == "Infinito") screen.textContent = ""
     })
 }
+// validar existencia de un signo
 const validarSignos = () => {
     let string = screen.textContent.split("");
     return signs.includes(string[string.length - 1]);
+}
+// cambiar temas
+for (let i = 0; i < temas.length; i++) {
+    temas[i].addEventListener("click", () => {
+        cambiarTema.className = `theme-${i+1}`;
+        container.className = `theme-${i+1}`;
+    })
 }
 
 one.addEventListener("click", (e) => {
