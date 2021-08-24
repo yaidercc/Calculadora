@@ -14,7 +14,7 @@
     margin: 0;
 }
 
-.container {
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,6 +90,7 @@ h2 {
         position: relative;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         padding: 2px 5px;
         width: 60px;
         height: 18px;
@@ -97,10 +98,26 @@ h2 {
         margin-top: 5px;
 
         a{
-            content: "";
+            
             position: absolute;
             @include bothsize(14px);
             border-radius: 20px;
+            &.theme-2{
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;   
+            }
+            &.theme-3{
+                right: 5px;
+            }
+        }
+        span{
+            @include bothsize(14px);
+            border-radius: 20px;
+            background-color: $t1screenbackground;
+            cursor: pointer;
         }
     }
 }
@@ -165,7 +182,7 @@ h2 {
 //themes config
 
 
-.container.theme-1{
+#container.theme-1{
     background-color: $t1mainbackground;
 
     color: $txtwhite;
@@ -205,7 +222,7 @@ h2 {
         }
     }
 }
-.container.theme-2{
+#container.theme-2{
     background-color: $t2mainbackground;
     color: $t2txtgrayish;
     .header{
@@ -246,7 +263,7 @@ h2 {
         }
     }
 }
-.container.theme-3{
+#container.theme-3{
     background-color: $t3mainbackground;
     color: $t3txtLightyellow;
     .header{
