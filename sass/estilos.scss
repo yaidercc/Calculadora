@@ -92,15 +92,15 @@ h2 {
         align-items: center;
         justify-content: space-between;
         padding: 2px 5px;
-        width: 60px;
-        height: 18px;
+        width: 90px;
+        height: 27px;
         border-radius: 20px;
         margin-top: 5px;
 
         a{
             
             position: absolute;
-            @include bothsize(14px);
+            @include bothsize(16px);
             border-radius: 20px;
             &.theme-2{
                 top: 0;
@@ -114,7 +114,7 @@ h2 {
             }
         }
         span{
-            @include bothsize(14px);
+            @include bothsize(16px);
             border-radius: 20px;
             background-color: $t1screenbackground;
             cursor: pointer;
