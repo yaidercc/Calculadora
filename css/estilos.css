@@ -3,13 +3,14 @@
 /* *** Globales *** */
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
-body {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3a4764;
+  height: 100vh;
   font-family: "Spartan", sans-serif;
   overflow: hidden;
 }
@@ -49,7 +50,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
 }
 .header p {
   font-size: 12px;
@@ -79,15 +79,13 @@ h2 {
   height: 18px;
   border-radius: 20px;
   margin-top: 5px;
-  background-color: #232c43;
 }
-.swicht-theme .swicht::after {
+.swicht-theme .swicht a {
   content: "";
   position: absolute;
   height: 14px;
   width: 14px;
   border-radius: 20px;
-  background-color: #d03f2f;
 }
 
 .screen {
@@ -95,7 +93,6 @@ h2 {
   padding: 15px 20px;
   text-align: right;
   color: white;
-  background-color: #182034;
 }
 
 .buttons {
@@ -104,7 +101,6 @@ h2 {
   gap: 15px;
   padding: 20px;
   border-radius: 10px;
-  background-color: #232c43;
 }
 .buttons .key {
   display: flex;
@@ -116,27 +112,11 @@ h2 {
 .buttons .delete {
   grid-area: 1/4/2/5;
 }
-.buttons .number,
-.buttons .operation {
-  background-color: #eae3dc;
-  box-shadow: 0px 4px 1px #404e72;
-}
 .buttons .result {
   grid-column: 3/5;
 }
 .buttons .reset {
   grid-column: span 2;
-}
-.buttons .delete,
-.buttons .reset {
-  color: white;
-  background-color: #637097;
-  box-shadow: 0px 4px 1px #404e72;
-}
-.buttons .result {
-  color: white;
-  background-color: #d03f2f;
-  box-shadow: 0px 4px 1px #93261a;
 }
 .buttons #suma {
   grid-area: 2/4/3/5;
@@ -149,6 +129,119 @@ h2 {
 }
 .buttons #punto {
   grid-area: 4/1/5/2;
+}
+
+.container.theme-1 {
+  background-color: #3a4764;
+  color: white;
+}
+.container.theme-1 .header {
+  color: inherit;
+}
+.container.theme-1 .swicht-theme .swicht {
+  background-color: #637097;
+}
+.container.theme-1 .swicht-theme .swicht a {
+  background-color: #d03f2f;
+}
+.container.theme-1 .screen {
+  background-color: #182034;
+}
+.container.theme-1 .buttons {
+  background-color: #232c43;
+}
+.container.theme-1 .buttons .number,
+.container.theme-1 .buttons .operation {
+  background-color: #eae3dc;
+  box-shadow: 0px 4px 1px #404e72;
+}
+.container.theme-1 .buttons .delete,
+.container.theme-1 .buttons .reset {
+  color: white;
+  background-color: #637097;
+  box-shadow: 0px 4px 1px #404e72;
+}
+.container.theme-1 .buttons .result {
+  color: white;
+  background-color: #d03f2f;
+  box-shadow: 0px 4px 1px #93261a;
+}
+
+.container.theme-2 {
+  background-color: #e6e6e6;
+  color: #35352c;
+}
+.container.theme-2 .header {
+  color: inherit;
+}
+.container.theme-2 .swicht-theme .swicht {
+  background-color: #d1cccc;
+}
+.container.theme-2 .swicht-theme .swicht a {
+  background-color: #ca5502;
+}
+.container.theme-2 .screen {
+  color: inherit;
+  background-color: #ededed;
+}
+.container.theme-2 .buttons {
+  color: white;
+  background-color: #d1cccc;
+}
+.container.theme-2 .buttons .number,
+.container.theme-2 .buttons .operation {
+  background-color: #eae3dc;
+  box-shadow: 0px 4px 1px #a69d91;
+}
+.container.theme-2 .buttons .delete,
+.container.theme-2 .buttons .reset {
+  color: inherit;
+  background-color: #377f86;
+  box-shadow: 0px 4px 1px #1b5f65;
+}
+.container.theme-2 .buttons .result {
+  color: inherit;
+  background-color: #ca5502;
+  box-shadow: 0px 4px 1px #93261a;
+}
+
+.container.theme-3 {
+  background-color: #160628;
+  color: #ffe53d;
+}
+.container.theme-3 .header {
+  color: inherit;
+}
+.container.theme-3 .swicht-theme .swicht {
+  background-color: #1d0934;
+}
+.container.theme-3 .swicht-theme .swicht a {
+  background-color: #00e0d1;
+}
+.container.theme-3 .screen {
+  color: inherit;
+  background-color: #1d0934;
+}
+.container.theme-3 .buttons {
+  color: #ffe53d;
+  background-color: #1d0934;
+}
+.container.theme-3 .buttons .number,
+.container.theme-3 .buttons .operation {
+  color: inherit;
+  background-color: #341c4f;
+  box-shadow: 0px 4px 1px #58077d;
+}
+.container.theme-3 .buttons .delete,
+.container.theme-3 .buttons .reset {
+  color: white;
+  background-color: #58077d;
+  box-shadow: 0px 4px 1px #bc15f4;
+}
+.container.theme-3 .buttons .result {
+  color: white;
+  background-color: #00e0d1;
+  box-shadow: 0px 4px 1px #6cf9f2;
 }
 
 /*# sourceMappingURL=estilos.css.map */

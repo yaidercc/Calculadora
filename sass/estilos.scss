@@ -11,15 +11,15 @@
 /* *** Globales *** */
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
-body {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $t1mainbackground;
+    height: 100vh;
     font-family: $font;
-
     overflow: hidden;
 }
 
@@ -61,7 +61,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $t1txtwhite;
+    
 
     p {
         font-size: 12px;
@@ -95,25 +95,24 @@ h2 {
         height: 18px;
         border-radius: 20px;
         margin-top: 5px;
-        background-color: $t1togglebackground;
 
-        &::after {
+        a{
             content: "";
             position: absolute;
             @include bothsize(14px);
             border-radius: 20px;
-            background-color: $t1keybackground-toggle;
         }
     }
 }
+
 
 // screen
 .screen {
     border-radius: 10px;
     padding: 15px 20px;
     text-align: right;
-    color: $t1txtwhite;
-    background-color: $t1screenbackground;
+    color: $txtwhite;
+    
 }
 
 // buttons
@@ -123,8 +122,7 @@ h2 {
     gap: 15px;
     padding: 20px;
     border-radius: 10px;
-    background-color: $t1togglebackground;
-
+    
     // styles buttons
     .key {
         display: flex;
@@ -138,31 +136,12 @@ h2 {
         grid-area: 1/4/2/5;
     }
 
-    .number,
-    .operation {
-        background-color: $keybackground;
-        box-shadow: 0px 4px 1px $t1keyshadow;
-    }
-
     .result {
         grid-column: 3/5;
     }
 
     .reset {
         grid-column: span 2;
-    }
-
-    .delete,
-    .reset {
-        color: $t1txtwhite;
-        background-color: $t1keybackground;
-        box-shadow: 0px 4px 1px $t1keyshadow;
-    }
-
-    .result {
-        color: $t1txtwhite;
-        background-color: $t1keybackground-toggle;
-        box-shadow: 0px 4px 1px $t1keyshadow2;
     }
 
     // position number
@@ -180,5 +159,131 @@ h2 {
 
     #punto {
         grid-area: 4/1/5/2;
+    }
+}
+
+//themes config
+
+
+.container.theme-1{
+    background-color: $t1mainbackground;
+
+    color: $txtwhite;
+    .header{
+        color: inherit;
+    }
+    .swicht-theme {
+        .swicht {
+            background-color: $t1keybackground;
+            a {
+
+                background-color: $t1keybackground-toggle;
+            }
+        }
+    }
+    .screen{
+        background-color: $t1screenbackground;
+    }
+    .buttons{
+        background-color: $t1togglebackground;
+        .number,
+        .operation {
+            background-color: $keybackground;
+            box-shadow: 0px 4px 1px $t1keyshadow;
+        }
+    
+        .delete,
+        .reset {
+            color: $txtwhite;
+            background-color: $t1keybackground;
+            box-shadow: 0px 4px 1px $t1keyshadow;
+        }
+        .result {
+            color: $txtwhite;
+            background-color: $t1keybackground-toggle;
+            box-shadow: 0px 4px 1px $t1keyshadow2;
+        }
+    }
+}
+.container.theme-2{
+    background-color: $t2mainbackground;
+    color: $t2txtgrayish;
+    .header{
+        color: inherit;
+    }
+    .swicht-theme {
+        .swicht {
+            background-color: $t2togglebackground;
+            a {
+
+                background-color: $t2keybackground-toggle;
+            }
+        }
+    }
+    .screen{
+        color: inherit;
+        background-color: $t2screenbackground;
+    }
+    .buttons{
+        color: $txtwhite;
+        background-color: $t2togglebackground;
+        .number,
+        .operation {
+            background-color: $keybackground;
+            box-shadow: 0px 4px 1px $t2keyshadow2;
+        }
+    
+        .delete,
+        .reset {
+            color: inherit;
+            background-color: $t2keybackground;
+            box-shadow: 0px 4px 1px $t2keyshadow;
+        }
+        .result {
+            color: inherit;
+            background-color: $t2keybackground-toggle;
+            box-shadow: 0px 4px 1px $t1keyshadow2;
+        }
+    }
+}
+.container.theme-3{
+    background-color: $t3mainbackground;
+    color: $t3txtLightyellow;
+    .header{
+        color: inherit;
+    }
+    .swicht-theme {
+        .swicht {
+            background-color: $t3togglebackground;
+            a {
+                background-color: $t3keybackground-toggle;
+            }
+        }
+    }
+    .screen{
+        color: inherit;
+        background-color: $t3togglebackground;
+    }
+    .buttons{
+        color: $t3txtLightyellow;
+        background-color: $t3togglebackground;
+        .number,
+        .operation {
+            color: inherit;
+            background-color: $t3keybackground2;
+            box-shadow: 0px 4px 1px $t3keybackground;
+        }
+    
+        .delete,
+        .reset {
+            color: $txtwhite;
+            background-color: $t3keybackground;
+            box-shadow: 0px 4px 1px $t3keyshadow;
+        }
+        .result {
+            color: $txtwhite;
+            background-color: $t3keybackground-toggle;
+            box-shadow: 0px 4px 1px $t3keyshadow2;
+        }
     }
 }

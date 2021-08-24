@@ -19,4 +19,50 @@ $keyshadow3: hsl(28, 16%, 65%);
 
 //Text
 $t1txtgrays: hsl(221, 14%, 31%);
-$t1txtwhite: hsl(0, 0%, 100%);
+$txtwhite: hsl(0, 0%, 100%);
+
+//Theme 2
+
+// Backgrounds
+
+$t2mainbackground: hsl(0, 0%, 90%);
+$t2togglebackground: hsl(0, 5%, 81%);
+$t2screenbackground: hsl(0, 0%, 93%);
+
+// Keys
+
+$t2keybackground: hsl(185, 42%, 37%);
+$t2keyshadow: hsl(185, 58%, 25%);
+
+$t2keybackground-toggle: hsl(25, 98%, 40%);
+$t2keyshadow2: hsl(25, 99%, 27%);
+
+$t2keybackground2: hsl(45, 7%, 89%);
+$t2keyshadow2: hsl(35, 11%, 61%);
+
+// Text
+
+$t2txtgrayish: hsl(60, 10%, 19%);
+
+// Theme 3
+
+// Backgrounds
+
+$t3mainbackground: hsl(268, 75%, 9%);
+$t3togglebackground: hsl(268, 71%, 12%);
+
+// Keys
+
+$t3keybackground: hsl(281, 89%, 26%);
+$t3keyshadow: hsl(285, 91%, 52%);
+
+$t3keybackground-toggle: hsl(176, 100%, 44%);
+$t3keyshadow2: hsl(177, 92%, 70%);
+
+$t3keybackground2: hsl(268, 47%, 21%);
+$t3keyshadow3: hsl(290, 70%, 36%);
+
+// Text
+
+$t3txtLightyellow: hsl(52, 100%, 62%);
+$t3txtdarkblue: hsl(198, 20%, 13%);
